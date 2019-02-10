@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dataex';
+
+
+
+  constructor (private httpClient: HttpClient) {}
+
+
+  method1Call() {
+    this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe(
+      success => {
+        console.log('successfully completed');
+        console.log(success);
+      }
+    );
+  }
+
+  method2Call() {
+    this.httpClient.get('https://jsonplaceholder.typicode.com/users12').subscribe(
+      success => {
+        console.log('successfully completed');
+        console.log(success);
+      }
+    );
+  }
+
+
 }
